@@ -65,3 +65,31 @@
 		--ring: 240 4.9% 83.9%;
 	}
 }
+
+@layer base {
+	* {
+		@apply border-border;
+	}
+	body {
+		@apply bg-background text-foreground;
+	}
+}
+
+@keyframes move {
+	0% {
+		transform: translateX(0) translateY(0);
+	}
+	100% {
+		transform: translateX(-100vw) translateY(100vh);
+	}
+}
+
+.animate-move1 {
+	animation: move 20s linear infinite;
+}
+.animate-move2 {
+	animation: move 30s linear infinite;
+}
+.animate-move3 {
+	animation: move 40s linear infinite;
+}

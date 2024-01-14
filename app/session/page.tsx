@@ -4,7 +4,7 @@ import { HMSPrebuilt } from "@100mslive/roomkit-react";
 
 export default function Home() {
 	return (
-		<div style={{ height: "100vh" }}>
+		<div className="h-screen">
 			<HMSPrebuilt roomCode="llt-vzrq-qty" />
 		</div>
 	);

@@ -1,18 +1,32 @@
 // Dots.tsx
 import React from "react";
+import { motion } from "framer-motion";
 
 const Dots = () => {
-	const numberOfDots = 50; // You can adjust this number
+	const numberOfDots = 100; // You can adjust this number
 
 	const createDots = () => {
 		return Array.from({ length: numberOfDots }).map((_, index) => (
-			<div
+			<motion.div
 				key={index}
 				className={`absolute rounded-full bg-black dark:bg-white opacity-20 
-                    ${randomSize()} ${randomAnimation()}`}
+                    ${randomSize()}`}
+				// start at a random position
 				style={{
-					top: `${Math.random() * 100}%`,
-					left: `${Math.random() * 100}%`,
+					top: `${Math.random() * 125 - 100}vh`,
+					left: `${Math.random() * 125 + 100}vw`,
+				}}
+				// animate to bottom left
+				animate={{
+					x: "-200vw",
+					y: "200vh",
+				}}
+				// transition settings
+				transition={{
+					duration: Math.random() * 20 + 20, // random duration between 15 and 30 seconds
+					repeat: Infinity, // repeat animation indefinitely
+					ease: "linear", // constant animation speed
+					delay: Math.random() * 10, // random delay between 0 and 10 seconds
 				}}
 			/>
 		));
@@ -21,11 +35,6 @@ const Dots = () => {
 	const randomSize = () => {
 		const sizes = ["w-1 h-1", "w-2 h-2", "w-3 h-3"];
 		return sizes[Math.floor(Math.random() * sizes.length)];
-	};
-
-	const randomAnimation = () => {
-		const animations = ["animate-move1", "animate-move2", "animate-move3"];
-		return animations[Math.floor(Math.random() * animations.length)];
 	};
 
 	return (

@@ -18,7 +18,7 @@ export default function RootLayout({
 	return (
 		<html lang="en" suppressHydrationWarning>
 			<head />
-			<body>
+			<body className="h-[75vh]">
 				<ThemeProvider
 					attribute="class"
 					defaultTheme="system"

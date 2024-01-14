@@ -1,3 +1,10 @@
+import { ModeToggle } from "@/components/component/mode-toggle";
+
 export default function Home() {
-	return <main>Hello Intellex!</main>;
+	return (
+		<main>
+			<ModeToggle />
+			Hello Intellex!
+		</main>
+	);
 }

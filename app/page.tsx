@@ -52,9 +52,9 @@ export default function Home() {
 			<motion.div variants={navbar} initial="hidden" animate="show">
 				<Navbar />
 			</motion.div>
-			<main className="max-w-[60%] mx-auto">
+			<main className="max-w-[60%] mx-auto h-full">
 				<motion.div
-					className="mt-[25vh] space-y-4 flex flex-col items-center"
+					className="mt-[35vh] space-y-4 flex flex-col items-center h-full"
 					variants={container}
 					initial="hidden"
 					animate="show"
@@ -73,7 +73,10 @@ export default function Home() {
 						spreading knowledge.
 					</motion.h2>
 					<motion.div variants={item}>
-						<Button className="mt-4 text-md flex items-center" onClick={() => signInFunc(router)}>
+						<Button
+							className="mt-4 text-md flex items-center"
+							onClick={() => signInFunc(router)}
+						>
 							<SiGoogle className="w-5 h-5 mr-2" />
 							Sign in with Google
 						</Button>

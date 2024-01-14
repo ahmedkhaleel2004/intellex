@@ -26,7 +26,7 @@ const SurveyQuestions: React.FC<SurveyQuestionsProps> = ({
 	const userInput = async (userResponse: string) => {
 		if (auth.currentUser) {
 			// Create or update the document with the user's UID
-			const docRef = doc(db, "questions", auth.currentUser.uid);
+			const docRef = doc(db, "users", auth.currentUser.uid);
 
 			// Prepare the update object
 			let updateData: { [key: string]: string | string[] } = {};

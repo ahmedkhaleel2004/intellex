@@ -7,17 +7,16 @@ import type { AppRouterInstance } from "next/dist/shared/lib/app-router-context.
 
 export function useAuth(
 	router: AppRouterInstance,
+	isHardCode: boolean = false
 ) {
-	const [userData, setUserData] = useState<DocumentData | undefined>(
-		undefined
-	);
+	const [userData, setUserData] = useState<DocumentData | undefined>(undefined);
 
 	useEffect(() => {
 		const unsubscribe = onAuthStateChanged(auth, async (user) => {
 			if (user) {
 				const userData = await getUserData(user.uid);
 				setUserData(userData);
-				if (userData && userData.doneForm) {
+				if (userData && userData.doneForm && !isHardCode) {
 					router.push("/dashboard");
 				} else if (userData && !userData.doneForm) {
 					router.push("/form");
@@ -30,7 +29,7 @@ export function useAuth(
 
 		// Cleanup subscription on unmount
 		return () => unsubscribe();
-	}, [router]);
+	}, [router, isHardCode]);
 
 	return userData;
 }

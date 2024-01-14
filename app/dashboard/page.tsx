@@ -1,16 +1,14 @@
-"use client";
-
-import { Button } from "@/components/ui/button";
 import React from "react";
 import { useRouter } from "next/navigation";
+import { useAuth } from "@/lib/hooks/use-auth";
 
 const Dashboard = () => {
 	const router = useRouter();
+	const userData = useAuth(router);
+
 	return (
 		<div>
-			<Button onClick={() => router.push("/session")}>
-				Create Session
-			</Button>
+			<p>dashboard</p>
 		</div>
 	);
 };

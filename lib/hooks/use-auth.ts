@@ -7,7 +7,6 @@ import type { AppRouterInstance } from "next/dist/shared/lib/app-router-context.
 
 export function useAuth(
 	router: AppRouterInstance,
-	forChatbot: boolean = false
 ) {
 	const [userData, setUserData] = useState<DocumentData | undefined>(
 		undefined
@@ -18,16 +17,20 @@ export function useAuth(
 			if (user) {
 				const userData = await getUserData(user.uid);
 				setUserData(userData);
-                // redirects go here
+				if (userData && userData.doneSurvey) {
+					router.push("/dashboard");
+				} else if (userData && !userData.doneSurvey) {
+					router.push("/survey");
+				}
 			} else {
 				setUserData(undefined);
-                // redirects go here
+				router.push("/");
 			}
 		});
 
 		// Cleanup subscription on unmount
 		return () => unsubscribe();
-	}, [router, forChatbot]);
+	}, [router]);
 
 	return userData;
 }

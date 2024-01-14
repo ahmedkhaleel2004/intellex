@@ -1,4 +1,6 @@
-import React from "react";
+"use client";
+
+import React, { useState } from "react";
 import {
 	Table,
 	TableBody,
@@ -36,6 +38,47 @@ const users = [
 ];
 
 const Leaderboard = () => {
+	const [walletAddress, setWalletAddress] = useState("");
+	const [transactionId, setTransactionId] = useState("");
+	const [transactionHash, setTransactionHash] = useState("");
+	const [blockExplorerLink, setBlockExplorerLink] = useState("");
+	const [isSubmitting, setIsSubmitting] = useState(false);
+	const [error, setError] = useState("");
+
+	function handleSubmit(e: any) {
+		e.preventDefault();
+		const postData = async () => {
+			const data = {
+				walletAddress: "0x57873816969c06Eb2dF7b56681E4A7502D2D0F69",
+			};
+
+			const response = await fetch("/api/verbwire", {
+				method: "POST",
+				body: JSON.stringify(data),
+			}).catch(function (error) {
+				console.log("Error: ", error);
+			});
+			return (response as Response).json();
+		};
+		postData().then((data) => {
+			if (data.response && data.response.transaction_details) {
+				if (data.response.transaction_details.transactionID !== undefined) {
+					setTransactionId(data.response.transaction_details.transactionID);
+				}
+				if (data.response.transaction_details.transactionHash) {
+					setTransactionHash(data.response.transaction_details.transactionHash);
+				}
+				if (data.response.transaction_details.blockExplorer) {
+					setBlockExplorerLink(data.response.transaction_details.blockExplorer);
+				}
+			} else {
+				if (data.error) {
+					setError(data.error.message);
+				}
+			}
+		});
+	}
+
 	return (
 		<div className="flex flex-col items-center h-screen justify-center max-w-screen-md mx-auto">
 			<Card className="w-[70%] rounded-3xl shadow-2xl m-4 justify-center items center text-center">
@@ -79,7 +122,9 @@ const Leaderboard = () => {
 				</Table>
 			</Card>
 			<h2 className="text-2xl font-bold m-4">DEMO: Reward Token</h2>
-			<Button className="m-4">Send Reward</Button>
+			<Button onClick={handleSubmit} className="m-4">
+				Send Reward
+			</Button>
 		</div>
 	);
 };

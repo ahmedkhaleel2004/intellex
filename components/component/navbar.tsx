@@ -54,7 +54,7 @@ const Navbar = () => {
 							width={40}
 							height={40}
 							alt="Intellex Logo"
-							className="w-8 h-8 mr-2"
+							className="w-8 h-8 mr-2 dark:invert"
 						/>
 						<p className="pt-0.5">Intellex</p>
 					</div>

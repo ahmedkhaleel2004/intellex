@@ -47,7 +47,7 @@ const Create = () => {
 					<CardHeader className="flex-row items-center">
 						<Avatar className="m-4">
 							<AvatarImage src={user.photoURL} alt="User PFP" />
-							<AvatarFallback>//</AvatarFallback>
+							<AvatarFallback>{"//"}</AvatarFallback>
 						</Avatar>
 						<div>
 							<CardTitle>{user.name}</CardTitle>

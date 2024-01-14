@@ -29,7 +29,7 @@ export function useAuth(
 
 		// Cleanup subscription on unmount
 		return () => unsubscribe();
-	}, [router]);
+	}, [router, isHardCode]);
 
 	return userData;
 }

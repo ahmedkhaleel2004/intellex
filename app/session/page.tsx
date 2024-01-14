@@ -1,9 +1,6 @@
-import dynamic from "next/dynamic";
+"use client";
 
-const HMSPrebuilt = dynamic(
-	() => import("@100mslive/roomkit-react").then((mod) => mod.HMSPrebuilt),
-	{ ssr: false } // This will load the component only on client side
-);
+import { HMSPrebuilt } from "@100mslive/roomkit-react";
 
 export default function Home() {
 	return (

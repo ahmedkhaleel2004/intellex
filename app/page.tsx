@@ -4,6 +4,7 @@ import Navbar from "@/components/component/navbar";
 import { Button } from "@/components/ui/button";
 import { SiGoogle } from "react-icons/si";
 import { motion } from "framer-motion";
+import Dots from "@/components/component/dots";
 
 export default function Home() {
 	const container = {
@@ -31,9 +32,23 @@ export default function Home() {
 		},
 	};
 
+	const navbar = {
+		hidden: { opacity: 0 },
+		show: {
+			opacity: 1,
+			transition: {
+				delay: 0.8, // Delay the animation until the previous animations have completed
+				duration: 1, // Duration of the fade in animation
+			},
+		},
+	};
+
 	return (
 		<>
-			<Navbar />
+			<Dots />
+			<motion.div variants={navbar} initial="hidden" animate="show">
+				<Navbar />
+			</motion.div>
 			<main className="max-w-[60%] mx-auto">
 				<motion.div
 					className="mt-[25vh] space-y-4 flex flex-col items-center"
@@ -55,7 +70,7 @@ export default function Home() {
 						spreading knowledge.
 					</motion.h2>
 					<motion.div variants={item}>
-						<Button className="mt-8 text-md flex items-center">
+						<Button className="mt-4 text-md flex items-center">
 							<SiGoogle className="w-5 h-5 mr-2" />
 							Sign in with Google
 						</Button>

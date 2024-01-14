@@ -20,7 +20,7 @@ export function useAuth(
 				if (userData && userData.doneSurvey) {
 					router.push("/dashboard");
 				} else if (userData && !userData.doneSurvey) {
-					router.push("/survey");
+					router.push("/form");
 				}
 			} else {
 				setUserData(undefined);

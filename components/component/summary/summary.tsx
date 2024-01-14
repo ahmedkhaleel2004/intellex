@@ -53,7 +53,7 @@ const Summary: React.FC<SummaryProps> = ({ meetings }) => {
           <div className="w-full mt-8">
             <ul className="list-disc list-inside pl-5 text-left">
               {meeting.summary.split(";").map((point, index) => (
-                <li key={index} className="my-2">
+                <li key={index} className="my-2 pl-5">
                   {point}
                 </li>
               ))}

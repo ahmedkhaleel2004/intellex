@@ -6,8 +6,10 @@ import { signInFunc } from "@/lib/sign-in-or-create";
 import { SiGoogle } from "react-icons/si";
 import { motion } from "framer-motion";
 import Dots from "@/components/component/dots";
+import { useRouter } from "next/navigation";
 
 export default function Home() {
+	const router = useRouter();
 	const container = {
 		hidden: { opacity: 0 },
 		show: {
@@ -71,7 +73,7 @@ export default function Home() {
 						spreading knowledge.
 					</motion.h2>
 					<motion.div variants={item}>
-						<Button className="mt-4 text-md flex items-center">
+						<Button className="mt-4 text-md flex items-center" onClick={() => signInFunc(router)}>
 							<SiGoogle className="w-5 h-5 mr-2" />
 							Sign in with Google
 						</Button>

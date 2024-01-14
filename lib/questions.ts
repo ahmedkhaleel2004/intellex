@@ -15,12 +15,12 @@ const questions = [
         desc: "This will be used to create your mentor description",
     },
 	{
-		title: "What are five skills you are proficient in and can teach?",
+		title: "What are three  skills you are proficient in and can teach?",
 		placeholder: "List your skills comma separated",
 		desc: "This will be used to pair you with possible mentees.",
 	},
 	{
-		title: "What are five skills you want to learn?",
+		title: "What are three skills you want to learn?",
 		placeholder: "List the skills you want to learn comma separated",
 		desc: "This will be used to pair you with possible mentors.",
 	},

@@ -17,9 +17,9 @@ export function useAuth(
 			if (user) {
 				const userData = await getUserData(user.uid);
 				setUserData(userData);
-				if (userData && userData.doneSurvey) {
+				if (userData && userData.doneForm) {
 					router.push("/dashboard");
-				} else if (userData && !userData.doneSurvey) {
+				} else if (userData && !userData.doneForm) {
 					router.push("/form");
 				}
 			} else {

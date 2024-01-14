@@ -29,18 +29,26 @@ const SurveyQuestions: React.FC<SurveyQuestionsProps> = ({
 			const docRef = doc(db, "questions", auth.currentUser.uid);
 
 			// Prepare the update object
-			let updateData: { [key: string]: string } = {};
-			updateData[`Q${currentQuestionIndex + 1}`] = userResponse;
+			let updateData: { [key: string]: string | string[] } = {};
+
+			// Check if it's question 4 or 5
+			if (currentQuestionIndex === 3 || currentQuestionIndex === 4) {
+				// Split the user response by comma and take the first three items
+				const responses = userResponse.split(",").slice(0, 3);
+				updateData[`Q${currentQuestionIndex + 1}`] = responses;
+			} else {
+				updateData[`Q${currentQuestionIndex + 1}`] = userResponse;
+			}
 
 			// Update the document with the new response
 			await setDoc(docRef, updateData, { merge: true });
 
 			// Check if this was the last question
-			if (currentQuestionIndex === questions.length - 1) {
+			if (currentQuestionIndex === 4) {
 				// Update the user document to indicate the survey is done
 				const userDocRef = doc(db, "users", auth.currentUser.uid);
 				await updateDoc(userDocRef, {
-					doneSurvey: true,
+					doneForm: true,
 				});
 			} else {
 				// Move to the next question

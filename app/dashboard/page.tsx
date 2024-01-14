@@ -1,18 +1,19 @@
-"use client";
-
 import React from "react";
-import { useRouter } from "next/navigation";
-import { useAuth } from "@/lib/hooks/use-auth";
+import { SessionCard } from "@/components/component/skills/skills";
+import ProfileIcon from "@/components/component/profile-icon";
 
 const Dashboard = () => {
-	const router = useRouter();
-	const userData = useAuth(router);
-
-	return (
-		<div>
-			<p>dashboard</p>
-		</div>
-	);
+  return (
+    <div className="flex flex-col justify-between h-screen">
+      <div className="flex flex-col ">
+        <SessionCard buttonName="Learn ..." />
+        <SessionCard buttonName="Learn ..." />
+        <SessionCard buttonName="Learn ..." />
+        <SessionCard buttonName="Learn ..." />
+        <SessionCard buttonName="Learn ..." />
+      </div>
+    </div>
+  );
 };
 
 export default Dashboard;

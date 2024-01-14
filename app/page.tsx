@@ -1,8 +1,15 @@
+"use client";
+
 import Navbar from "@/components/component/navbar";
 import { Button } from "@/components/ui/button";
+import { signInFunc } from "@/lib/sign-in-or-create";
 import { SiGoogle } from "react-icons/si";
+import { useRouter } from "next/navigation";
 
 export default function Home() {
+
+const router = useRouter();
+
 	return (
 		<>
 			<Navbar />
@@ -14,7 +21,8 @@ export default function Home() {
 					<h2 className="text-xl tracking-tight lg:text-2xl text-center">
 						Join a diverse community of learners.
 					</h2>
-					<Button className="text-md flex items-center">
+					<Button className="text-md flex items-center" onClick={() => signInFunc(router)}
+					>
 						<SiGoogle className="w-4 h-4 mr-2" />
 						Sign in with Google
 					</Button>

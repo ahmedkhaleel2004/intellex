@@ -29,7 +29,7 @@ const Summary: React.FC<SummaryProps> = ({ meetings }) => {
       {meetings.map((meeting, index) => (
         <Card key={index} className="m-4 w-[38rem]  flex flex-col ">
           <div className="flex flex-row justify-between w-full">
-            <div className="flex flex-row items-center">
+            <div className="flex flex-row items-center mr-4">
               <Avatar className="m-4">
                 <AvatarImage src={meeting.user1.photoURL} alt="User 1 PFP" />
                 <AvatarFallback>{"//"}</AvatarFallback>
@@ -39,7 +39,7 @@ const Summary: React.FC<SummaryProps> = ({ meetings }) => {
                 <CardDescription>{meeting.user1.description}</CardDescription>
               </div>
             </div>
-            <div className="flex flex-row items-center">
+            <div className="flex flex-row items-center mr-4">
               <Avatar className="m-4">
                 <AvatarImage src={meeting.user2.photoURL} alt="User 2 PFP" />
                 <AvatarFallback>{"//"}</AvatarFallback>

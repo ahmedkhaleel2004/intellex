@@ -8,7 +8,9 @@ const Dashboard = () => {
   return (
     <div className="flex flex-col items-center justify-between min-h-screen">
       <div>
-        <h1 className="text-center text-4xl mb-20">Dashboard</h1>
+        <h1 className="text-center text-4xl font-bold mb-20 mt-10">
+          Dashboard
+        </h1>
         <Summary
           meetings={[
             {

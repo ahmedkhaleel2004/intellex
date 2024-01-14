@@ -82,11 +82,6 @@ export default function Home() {
 						</Button>
 					</motion.div>
 				</motion.div>
-				<section>
-					<h2 className="text-3xl font-bold tracking-tight lg:text-4xl text-center">
-						How it works
-					</h2>
-				</section>
 			</main>
 		</>
 	);

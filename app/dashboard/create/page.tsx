@@ -54,7 +54,7 @@ const Create = () => {
 							<CardDescription>{user.description}</CardDescription>
 						</div>
 					</CardHeader>
-					<Button className="ml-6">Create session</Button>
+					<Button className="mx-6">Create session</Button>
 				</Card>
 			))}
 		</div>

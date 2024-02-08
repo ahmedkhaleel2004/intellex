@@ -11,7 +11,7 @@
 </div>
 
 ## Introduction
-Intellex allows users to hop on a call, and teach one another a specific skill they are interested in - like how we use youtube tutorials, but with real people and interactivity. Top weekly learners earn NFT's! 
+Intellex allows users to hop on a call, and teach one another a specific skill they are interested in - like how we use YouTube tutorials, but with real people and interactivity. Top weekly learners earn NFT's! 
 
 The idea was to discover how blockchain technology can help us innovate and move past centralized systems, which is when we realized that education in its entirety is mostly a centralized system with governments crafting the curricula. Intellex is a step towards education decentralization. 
 

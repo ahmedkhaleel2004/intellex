@@ -8,10 +8,13 @@ const Session = () => {
 
   return (
     <div className="h-screen">
-      <HMSPrebuilt
-        roomCode="fwf-ghpj-mts"
+      Unfortunately, this page is not supported on the deployment.
+      <br />
+      Please run the app locally to use this feature.
+      {/* <HMSPrebuilt
+        roomCode="fwf-ghpj-mts" 
         onLeave={() => router.push("/dashboard")}
-      />
+      /> */}
     </div>
   );
 };

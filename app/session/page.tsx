@@ -3,7 +3,7 @@
 import { HMSPrebuilt } from "@100mslive/roomkit-react";
 import { useRouter } from "next/navigation";
 
-const Home = () => {
+const Session = () => {
   const router = useRouter();
 
   return (
@@ -16,4 +16,4 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default Session;
